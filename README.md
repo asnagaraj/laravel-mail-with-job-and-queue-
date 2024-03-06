@@ -1,5 +1,6 @@
-#Mastering Laravel 10 Mail with Jobs & Queues: A Comprehensive Guide
-## 1.Before delving into the code, ensure to create a new project and configure your .env file accordingly.
+#Mastering Laravel 10 Mail with Jobs & Queues: 
+## 1.ensure to create a new project and configure your .env file accordingly.
+
 To initiate a new Laravel project, begin by launching Terminal and executing the following command:
 
 composer create-project laravel/laravel mailqueue
@@ -11,10 +12,15 @@ cd mailqueue
 ## 3.Adjust the queue driver and set up your mail configuration as per your requirements.
 
 DB_CONNECTION=mysql
+
 DB_HOST=127.0.0.1
+
 DB_PORT=3306
+
 DB_DATABASE=<YOUR DATABASE NAME>
+
 DB_USERNAME=<YOUR DATABASE USERNAME>
+
 DB_PASSWORD=<YOUR DATABASE PASSWORD>
 
 QUEUE_CONNECTION=database
