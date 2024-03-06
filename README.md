@@ -26,12 +26,19 @@ DB_PASSWORD=<YOUR DATABASE PASSWORD>
 QUEUE_CONNECTION=database
 
 MAIL_MAILER=smtp
+
 MAIL_HOST=smtp.gmail.com
+
 MAIL_PORT=465
+
 MAIL_USERNAME="mail@gmail.com"
+
 MAIL_PASSWORD="xxxx xxxx xxxx xxxx"
+
 MAIL_ENCRYPTION=tls
+
 MAIL_FROM_ADDRESS="mail@gmail.com"
+
 MAIL_FROM_NAME="Your Name"
 
  ## 4. To generate a password for mail usage, follow these steps:
@@ -52,15 +59,19 @@ MAIL_FROM_NAME="Your Name"
 ## 5.Execute the following command to generate migrations and create tables for a queue:
 
 php artisan queue:table
+
  ## 6.This command will create a migration file for the queue tables. After generating the migration, you can run the migration to create the necessary tables in the database. Use the following command to run the migration:
 
 php artisan migrate
-Certainly! Now that all the necessary setups have been configured.
+
+
 
  ## 7.Create a Mail Class
+ 
 To create a new mail class for sending emails in Laravel, you can use the make:mail Artisan command. Here's how you can do it:
 
 php artisan make:mail NewMail
+
 This command will generate a new mail class in the App\Mail directory.
 
 Once the mail class is generated, you can customize it according to your needs. Open the generated mail class file located at app/Mail/NewMail.php
@@ -70,9 +81,13 @@ Once the mail class is generated, you can customize it according to your needs. 
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+
 use Illuminate\Mail\Mailable;
+
 use Illuminate\Mail\Mailables\Content;
+
 use Illuminate\Mail\Mailables\Envelope;
+
 use Illuminate\Queue\SerializesModels;
 
 class NewMail extends Mailable
@@ -95,6 +110,7 @@ class NewMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
+        
             subject: $this->mailData['subject'],
         );
     }
@@ -105,6 +121,7 @@ class NewMail extends Mailable
     public function content(): Content
     {
         return new Content(
+        
             view: 'emails.new-mail',
         );
     }
@@ -123,7 +140,9 @@ class NewMail extends Mailable
 
 Navigate to the resources/views/emails directory in your Laravel project. If the emails directory does not exist, you can create it.
 
+
 Inside the emails directory, create a new blade template file. You can name it whatever you like, for example, new-mail.blade.php.
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -145,9 +164,11 @@ Inside the emails directory, create a new blade template file. You can name it w
 </html>
 
 ## 9.Create a Job Class
+
 To create a new job class for sending emails in Laravel, you can use the make:job Artisan command. Here's how you can do it:
 
 php artisan make:job SendMail
+
 This command will generate a new job class in the App\Jobs directory.
 
 Once the job class is generated, you can customize it according to your needs. Open the generated job class file located at app/Jobs/SendMail.php
@@ -157,11 +178,17 @@ Once the job class is generated, you can customize it according to your needs. O
 namespace App\Jobs;
 
 use App\Mail\NewMail;
+
 use Illuminate\Bus\Queueable;
+
 use Illuminate\Contracts\Queue\ShouldQueue;
+
 use Illuminate\Foundation\Bus\Dispatchable;
+
 use Illuminate\Queue\InteractsWithQueue;
+
 use Illuminate\Queue\SerializesModels;
+
 use Mail;
 
 class SendMail implements ShouldQueue
@@ -190,9 +217,11 @@ class SendMail implements ShouldQueue
     }
 }
 ## 10.Create a Mail Controller
+
 To create a mail controller in Laravel, you can use the make:controller Artisan command. Here's how you can do it:
 
 php artisan make:controller MailController
+
 This command will generate a new controller class named MailController in the App\Http\Controllers directory.
 
 Once the controller is generated, you can customize it according to your needs. Open the generated controller file located at app/Http/Controllers/MailController.php
@@ -202,7 +231,9 @@ Once the controller is generated, you can customize it according to your needs. 
 namespace App\Http\Controllers;
 
 use App\Jobs\SendMail;
+
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
 
 class MailController extends Controller
@@ -236,6 +267,7 @@ class MailController extends Controller
     }
 }
 ## 11.Modify the Web Routes
+
 To modify the web routes in Laravel to include routes for sending emails using the MailController, you can do the following:
 
 Open the routes/web.php file located in your Laravel project.
@@ -263,7 +295,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MailController::class, 'index']);
 
 Route::post('send-mail', [MailController::class, 'sendMail']);
+
 ## 12. Custome the Welcome blade file
+
 Open the resources/views/welcome.blade.php file in your Laravel project. If this file doesn't exist, you can create it.
 
 <!DOCTYPE html>
@@ -479,9 +513,11 @@ Open the resources/views/welcome.blade.php file in your Laravel project. If this
 </html> 
 
 ## 13 .Install Toastr.js notifications for Laravel
+
 Run the following command in your terminal to install Toastr via composer:
 
 composer require yoeunes/toastr
+
 ## 14. Please launch your project using the following command php artisan serve and navigate to the following link:
 
 http://localhost:8000
