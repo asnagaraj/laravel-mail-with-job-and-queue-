@@ -1,8 +1,10 @@
+#Mastering Laravel 10 Mail with Jobs & Queues: 
+
 ## final refers the Website
 
 https://medium.com/@bhuvaneshcj  clearly describe the step
 
-#Mastering Laravel 10 Mail with Jobs & Queues: 
+
 
 ## 1.ensure to create a new project and configure your .env file accordingly.
 
