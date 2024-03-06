@@ -7,6 +7,7 @@ composer create-project laravel/laravel mailqueue
 ## 2.Head over to the root directory of your project.
 
 cd mailqueue
+
 ## 3.Adjust the queue driver and set up your mail configuration as per your requirements.
 
 DB_CONNECTION=mysql
@@ -15,7 +16,9 @@ DB_PORT=3306
 DB_DATABASE=<YOUR DATABASE NAME>
 DB_USERNAME=<YOUR DATABASE USERNAME>
 DB_PASSWORD=<YOUR DATABASE PASSWORD>
+
 QUEUE_CONNECTION=database
+
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=465
@@ -24,15 +27,22 @@ MAIL_PASSWORD="xxxx xxxx xxxx xxxx"
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS="mail@gmail.com"
 MAIL_FROM_NAME="Your Name"
- ## 4. To generate a password for mail usage, follow these steps:
 
+ ## 4. To generate a password for mail usage, follow these steps:
  . Sign in to your Gmail account at myaccount.google.com.
+ 
  .  Navigate to the Security settings and enable Two-Factor Authentication.
+ 
  . Once Two-Factor Authentication is enabled, locate the “App passwords” option. Click here
+ 
  .  Select “Other” from the list of apps and enter your app’s name.
+ 
  .  Click on the “GENERATE” button to obtain a new app password.
+ 
  . Copy the 16-digit password provided and click “Done”.
+ 
  . Utilize this generated password instead of your regular email password for sending emails via your application.
+ 
 ## 5.Execute the following command to generate migrations and create tables for a queue:
 
 php artisan queue:table
